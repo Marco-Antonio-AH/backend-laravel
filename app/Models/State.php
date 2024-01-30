@@ -11,10 +11,21 @@ class State extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+    
     public $timestamps = false;
 
     public function todos()
     {
         return $this->hasMany(Todo::class);        
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);        
+    }
+
+    public function taskUser()
+    {
+        return $this->hasMany(TaskUser::class);
     }
 }
