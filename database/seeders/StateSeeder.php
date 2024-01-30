@@ -8,26 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 class StateSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+
+    public function run(): void
     {
-        State::insert([
+        State::query()->insert([
             [
                 'name' => 'Por Hacer',
-
             ],
             [
                 'name' => 'En Progreso',
-
             ],
             [
                 'name' => 'Completada',
-
-            ],                    
+            ],
         ]);
 
     }
