@@ -127,7 +127,6 @@ class CreateSchemaTable extends Migration
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
-            $table->boolean('active')->default(true);
             $table->timestamp('due_date');
             $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Task::class)->constrained();

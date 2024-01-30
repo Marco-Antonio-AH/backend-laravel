@@ -14,11 +14,7 @@ class TaskUser extends Pivot
         'due_date',
         'user_id',
         'task_id',
-        'state_id',
+        'state_id'
     ];
 
-    public function state(): BelongsTo
-    {
-        return $this->belongsTo(State::class);
-    }
 }

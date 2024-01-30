@@ -13,24 +13,20 @@ class Step extends Model
     protected $table = 'steps';
 
     protected $fillable = [
-        'title',
+        'name',
         'description',
-        'due_date',
         'image',
+        'due_date',
         'task_id',
-        'state_id',
-        'created_at',
-        'deleted_at',
+        'state_id'
     ];
 
     public function Task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
-
     public function State(): BelongsTo
     {
         return $this->belongsTo(State::class);
     }
-
 }
