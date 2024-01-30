@@ -30,7 +30,7 @@ class CreateSchemaTable extends Migration
         ]
     ];
 
-    private static function pascalToSnake($tableName): string
+    private static function pascalToSnake(string $tableName): string
     {
         return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $tableName));
 //        return str_replace('_', '', ucwords('role_user', '_'));
@@ -58,7 +58,7 @@ class CreateSchemaTable extends Migration
         }
     }
 
-    private static function __createStatesCatalog($tableName): void
+    private static function __createStatesCatalog(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
@@ -66,7 +66,7 @@ class CreateSchemaTable extends Migration
         });
     }
 
-    private static function __createUsersTable($tableName): void
+    private static function __createUsersTable(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
@@ -82,7 +82,7 @@ class CreateSchemaTable extends Migration
         });
     }
 
-    private static function __createTodosTable($tableName): void
+    private static function __createTodosTable(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
@@ -96,7 +96,7 @@ class CreateSchemaTable extends Migration
         });
     }
 
-    private static function __createTasksTable($tableName): void
+    private static function __createTasksTable(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
@@ -109,7 +109,7 @@ class CreateSchemaTable extends Migration
         });
     }
 
-    private static function __createStepsTable($tableName): void
+    private static function __createStepsTable(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
@@ -123,7 +123,7 @@ class CreateSchemaTable extends Migration
         });
     }
 
-    private static function __createTaskUserPivot($tableName): void
+    private static function __createTaskUserPivot(string $tableName): void
     {
         Schema::create($tableName, function (Blueprint $table) {
             $table->id();
