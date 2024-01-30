@@ -9,23 +9,29 @@ class Task extends Model
 {
     use HasFactory;
 
-    public function steps()
-    {
-        return $this->hasMany(Step::class); 
+    protected $fillable = [
+        'title',
+        'description',
+        'active',
+        'due_date',
+        'todo_id',
+        'state_id',
+    ];
+
+    public function todo(){
+        return belongsTo(Todo::class,'todo_id','id');
     }
 
-    public function state()
-    {
-        return $this->belongsTo(State::class);
+    public function state(){
+        return belongsTo(State::class,'state_id','id');
     }
 
-    public function todo()
-    {
-        return $this->belongsTo(Todo::class);
+    public function steps(){
+        return hasMany(Step::class,'task_id','id');
     }
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class)->using(TaskUser::class);            
+    public function users(){
+        return $this->belongsToMany(User::class)
+            ->using(TaskUser::class);
     }
 }

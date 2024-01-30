@@ -31,12 +31,12 @@ class User extends Authenticatable
 
     public function todos()
     {
-        return $this->hasMany(Todo::class);        
+        return $this->hasMany(Todo::class);
     }
 
-    public function tasks()
-    {
-        return $this->belongsToMany(Task::class)->using(TaskUser::class);          
+    public function tasks(){
+        return $this->belongsToMany(Task::class)
+            ->using(TaskUser::class);
     }
-         
+
 }

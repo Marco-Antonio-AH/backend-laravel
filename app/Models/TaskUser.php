@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class TaskUser extends Pivot
 {
-    
+    use HasFactory;
+
     protected $fillable = [
         'due_date',
         'user_id',
@@ -16,9 +17,9 @@ class TaskUser extends Pivot
         'state_id'
     ];
 
-    public function state(): BelongsTo
-    {
+
+    public function state(){
         return $this->belongsTo(State::class);
     }
-    
+
 }

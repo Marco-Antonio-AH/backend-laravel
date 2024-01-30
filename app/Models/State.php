@@ -11,7 +11,6 @@ class State extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
-    
     public $timestamps = false;
 
     public function todos()
@@ -21,11 +20,6 @@ class State extends Model
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);        
-    }
-
-    public function taskUser()
-    {
-        return $this->hasMany(TaskUser::class);
+        return $this->hasMany(Task::class);
     }
 }

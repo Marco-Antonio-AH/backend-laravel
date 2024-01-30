@@ -9,21 +9,6 @@ class Todo extends Model
 {
     use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function state()
-    {
-        return $this->belongsTo(State::class);
-    }
-
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
-
     protected $fillable = [
         'title',
         'description',
@@ -31,4 +16,16 @@ class Todo extends Model
         'user_id',
         'state_id'
     ];
+
+    public function user(){
+        return belongsTo(User::class,'user_id','id');
+    }
+
+    public function tasks(){
+        return hasMany(Task::class,'todo_id','id');
+    }
+
+    public function state(){
+        return belongsTo(State::class,'state_id','id');
+    }
 }
