@@ -10,12 +10,8 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+
+    public function run(): void
     {
         $this->call(StateSeeder::class);
 
@@ -26,7 +22,5 @@ class DatabaseSeeder extends Seeder
             fn($sequence)=>['state_id'=>State::all()->random()]
         )))
         ->create();
-        
-        
     }
 }

@@ -23,4 +23,12 @@ class Todo extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    protected $fillable = [
+        'title',
+        'description',
+        'due_date',
+        'user_id',
+        'state_id'
+    ];
 }
