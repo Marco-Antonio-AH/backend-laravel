@@ -13,5 +13,8 @@ class State extends Model
     protected $fillable = ['name'];
     public $timestamps = false;
 
-
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);        
+    }
 }
