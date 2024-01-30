@@ -40,7 +40,7 @@ class CreateSchemaTable extends Migration
     {
         foreach (self::tables as $type => $schemas) {
             foreach ($schemas as $tableName) {
-                $functionName = ('__' . (self::statuses['createFlag'] ? 'create' : 'u`pdate') . $tableName . $type);
+                $functionName = ('__' . (self::statuses['createFlag'] ? 'create' : 'update') . $tableName . $type);
                 if (method_exists($this, $functionName)) self::$functionName(self::pascalToSnake($tableName));
             }
         }
